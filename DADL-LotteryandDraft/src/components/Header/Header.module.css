@@ -1,0 +1,23 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+}
+.div {
+  height: 100%;
+  width: 100%;
+}
+
+.title {
+  font-size: 4.0em;
+  color: #B7B7B7;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.logo {
+  border-radius: 10px;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
