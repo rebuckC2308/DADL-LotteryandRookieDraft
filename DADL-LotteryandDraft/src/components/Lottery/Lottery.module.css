@@ -4,6 +4,15 @@
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
-.grid {
-  height: 100%
+.div {
+  margin: 0 1em 0 1em;
+  padding: 0 1em 0 1em;
+  border: 2px solid #fafafa;
+  border-radius: 5px;
+}
+
+.buttonDiv{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
 }
