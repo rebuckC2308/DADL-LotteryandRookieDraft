@@ -3,27 +3,33 @@ import { Box } from '@mui/material';
 import Card from '../UI/Card'
 import Button from '../UI/Button'
 import classes from './Lottery.module.css'
-import { nonLottoTeams } from '../../teamdata';
+import { pickHandler } from '../../functions/pickHandler';
+import { nonLottoTeams, consolationTeams, lottoTeams } from '../../teamdata';
 import LotteryBoard from './Board/LotteryBoard';
-import { determinePicks7and8 } from '../../functions/pickSevenAndEight';
 
 const Lottery = () => {
+  const [pickNumber, setPickNumber] = useState(8)
   const [nonLottoList, setNonLottoList] = useState(nonLottoTeams)
-  const [disablePick78Btn, setDisablePick78Btn] = useState(false);
+  const [consolationPicks, setConsolationPicks] = useState(consolationTeams)
+  const [lottoList, setLottoList] = useState(lottoTeams)
 
+  const updateBoard = (pick, newNonLottoList, newConsolationList) => {
+    if (pick > 6) {
+      setConsolationPicks(newConsolationList);
+      setNonLottoList(newNonLottoList);
+      setPickNumber((prevState) => {
+        return prevState = prevState -1
+      })
+    }
+  
+  }
   //Need to draw for 7th/8th picks
-  const pickSevenAndEightClickHandler = () => {
-    const [pick7, pick8] = determinePicks7and8("Money Train", "TWINNING .")
-
-    let newArr = [...nonLottoList]
-
-    newArr[1].team = pick8;
-    setNonLottoList(newArr)
-
-    newArr[0].team = pick7;
-
-    setDisablePick78Btn(true)
-    return
+  const onClickHandler = () => {
+    if (pickNumber > 6) {
+      let [ updatedNonLottoTeams, updatedCoosolationTeam ] = pickHandler(pickNumber, nonLottoList, consolationPicks)
+      
+      updateBoard(pickNumber, updatedNonLottoTeams, updatedCoosolationTeam)
+    }
   }
 
   return (
@@ -31,11 +37,10 @@ const Lottery = () => {
       <Box sx={{ height: '40%', maxWidth: '100%', paddingBottom: '1em'}}>
         <h1 className={classes.title}>DADL Draft Lottery</h1>
         <div className={classes.buttonDiv}>
-        <Button type='submit'>Reveal Picks 1-6</Button>
-        <Button type='submit' onClick={pickSevenAndEightClickHandler} disableBtn={disablePick78Btn}>Reveal Picks 7 & 8</Button>
+          <Button type='submit' onClick={onClickHandler} >Reveal Pick {pickNumber}</Button>
         </div>
         <div className={classes.div}>
-          <LotteryBoard nonLottoTeams={ nonLottoList } />
+          <LotteryBoard nonLotteryTeams={ nonLottoList } lotteryTeams={lottoList} />
         </div>
       </Box>
     </Card>

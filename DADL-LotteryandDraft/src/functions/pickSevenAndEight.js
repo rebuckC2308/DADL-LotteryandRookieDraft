@@ -5,15 +5,10 @@ const randomZeroOrOne = (range) => {
 }
 
 
-export const determinePicks7and8 = (team1, team2) => {
-
-  const selectionArr = [team1, team2];
+export const determinePicks7and8 = (teams) => {
+  if (teams.length === 1) return teams[0];
   let index = randomZeroOrOne(101);
 
-  
-
-  const pick8 = selectionArr[index]
-  const pick7 = selectionArr[index === 0 ? 1 : 0]
-
-  return [pick7, pick8];
+  const pick = teams[index]
+  return pick;
 }
