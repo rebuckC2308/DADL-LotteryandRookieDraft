@@ -30,5 +30,5 @@ let lotteryOdds = [
   team: 'LOADING...',
   odds: 35,
   }
-
 ]
+
