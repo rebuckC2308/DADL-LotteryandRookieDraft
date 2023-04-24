@@ -3,9 +3,9 @@ import SecondaryListElement from './SecondaryListElement';
 import PrimaryListElement from './PrimaryListElement';
 import classes from './ListElement.module.css'
 
-const ListElement = ({ team, byWayOf, pick } ) => {
+const ListElement = ({ team, details, pick } ) => {
   return (
-    <div className={classes.item}>
+    <div className={team==='' && details==='' ? classes.emptyItem : classes.item}>
     <ListItem>
       <ListItemAvatar>
         <Avatar sx={{ bgcolor: '#181818' }}>
@@ -13,12 +13,13 @@ const ListElement = ({ team, byWayOf, pick } ) => {
         </Avatar>
       </ListItemAvatar>
         <ListItemText
-        primary={
-          <PrimaryListElement team={ team } />  
+        primary={ team ?
+            <PrimaryListElement team={team} /> :
+            <PrimaryListElement team={ '' } />
         }
-        secondary={ byWayOf ?
-            <SecondaryListElement byWayOf={ byWayOf }/>
-          : null }
+        secondary={ details ?
+            <SecondaryListElement details={ details }/>
+          : <SecondaryListElement details={ '' } />}
       />
     </ListItem>
     </div>

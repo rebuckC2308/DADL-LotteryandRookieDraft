@@ -17,7 +17,8 @@ export const pickHandler = (pickNum, nonLottoTeamOrder, consolationTeams) => {
 
     let index = pickNum === 8 ? 1 : 0;
     let nonLottoTeamOrderCopy = [...nonLottoTeamOrder]
-    nonLottoTeamOrderCopy[index].team = pick;
+    nonLottoTeamOrderCopy[index].team = pick.team;
+    nonLottoTeamOrderCopy[index].byWayOf= pick.byWayOf
 
     return [nonLottoTeamOrderCopy, updatedTeamArr];
   }

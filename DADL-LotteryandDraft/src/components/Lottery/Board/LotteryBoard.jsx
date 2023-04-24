@@ -10,7 +10,7 @@ const LotteryBoard = ({ nonLotteryTeams, lotteryTeams }) => {
             <div>
               <List>
                 {lotteryTeams.map((team) => {
-                  return <ListElement key={team.id} team={team.team} byWayOf={team.byWayOf}
+                  return <ListElement key={team.id} team={team.team} details={team.record}
                     pick={team.id} />
                 })}
               </List>
@@ -20,7 +20,7 @@ const LotteryBoard = ({ nonLotteryTeams, lotteryTeams }) => {
             <div>
                 <List>
                   {nonLotteryTeams.map((team) => {
-                    return <ListElement key={team.id} team={team.team} byWayOf={team.byWayOf}
+                    return <ListElement key={team.id} team={team.team} details={team.byWayOf}
                       pick={team.id} />
                   })}
                 </List>

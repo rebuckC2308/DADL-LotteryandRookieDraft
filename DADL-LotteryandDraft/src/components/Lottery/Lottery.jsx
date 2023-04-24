@@ -4,43 +4,77 @@ import Card from '../UI/Card'
 import Button from '../UI/Button'
 import classes from './Lottery.module.css'
 import { pickHandler } from '../../functions/pickHandler';
-import { nonLottoTeams, consolationTeams, lottoTeams } from '../../teamdata';
+import { nonLottoTeams, consolationTeams, lottoTeams, lotteryTeams } from '../../teamdata';
 import LotteryBoard from './Board/LotteryBoard';
+import { createLotteryArray, determinePicks1and2, filterAndSortLotteryTeams } from '../../functions/lotteryOrderHandler';
 
 const Lottery = () => {
+  const [showLotteryComputeButton, setShowLotteryComputeButton] = useState(false)
   const [pickNumber, setPickNumber] = useState(8)
   const [nonLottoList, setNonLottoList] = useState(nonLottoTeams)
   const [consolationPicks, setConsolationPicks] = useState(consolationTeams)
+  const [filteredSortedLottery, setFilteredSortedLottery] = useState([])
   const [lottoList, setLottoList] = useState(lottoTeams)
 
-  const updateBoard = (pick, newNonLottoList, newConsolationList) => {
+  const updateBoard = (pick, teamList, newConsolationList = [],) => {
     if (pick > 6) {
       setConsolationPicks(newConsolationList);
-      setNonLottoList(newNonLottoList);
+      setNonLottoList(teamList);
       setPickNumber((prevState) => {
-        return prevState = prevState -1
+        return prevState = prevState - 1
       })
     }
-  
+    if (pick <= 6) {
+      setLottoList(prevState => {
+        prevState[pick - 1].team = teamList[pick - 1].name
+        prevState[pick - 1].record = teamList[pick - 1].record
+        return [...prevState]
+      })
+      setPickNumber((prevState) => {
+        return prevState = prevState - 1
+      })
+    }
   }
-  //Need to draw for 7th/8th picks
+
   const onClickHandler = () => {
     if (pickNumber > 6) {
-      let [ updatedNonLottoTeams, updatedCoosolationTeam ] = pickHandler(pickNumber, nonLottoList, consolationPicks)
-      
+      let [updatedNonLottoTeams, updatedCoosolationTeam] = pickHandler(pickNumber, nonLottoList, consolationPicks)
+
       updateBoard(pickNumber, updatedNonLottoTeams, updatedCoosolationTeam)
+
+      if (pickNumber === 7) setShowLotteryComputeButton(true);
+      return;
     }
+
+    if (pickNumber <= 6) {
+      updateBoard(pickNumber, filteredSortedLottery)
+    }
+  }
+
+  const computeLotteryOrder = () => {
+    const lotteryArr = createLotteryArray(lotteryTeams)
+
+    const [pick1, remainingLotteryTeamsArr] = determinePicks1and2(lotteryArr);
+    const [pick2] = determinePicks1and2(remainingLotteryTeamsArr)
+
+    const filteredSortedLotteryTeams = filterAndSortLotteryTeams(lotteryTeams, pick1, pick2);
+
+    setFilteredSortedLottery([...filteredSortedLotteryTeams])
+
+    setShowLotteryComputeButton(false);
   }
 
   return (
     <Card>
-      <Box sx={{ height: '40%', maxWidth: '100%', paddingBottom: '1em'}}>
+      <Box sx={{ height: '40%', maxWidth: '100%', paddingBottom: '1em' }}>
         <h1 className={classes.title}>DADL Draft Lottery</h1>
         <div className={classes.buttonDiv}>
-          <Button type='submit' onClick={onClickHandler} >Reveal Pick {pickNumber}</Button>
+          {pickNumber === 0 ? <></> : showLotteryComputeButton ?
+            <Button type='submit' onClick={computeLotteryOrder}>Randomize Lottery Order</Button> :
+            <Button type='submit' onClick={onClickHandler} >Reveal Pick {pickNumber}</Button>}
         </div>
         <div className={classes.div}>
-          <LotteryBoard nonLotteryTeams={ nonLottoList } lotteryTeams={lottoList} />
+          <LotteryBoard nonLotteryTeams={nonLottoList} lotteryTeams={lottoList} />
         </div>
       </Box>
     </Card>

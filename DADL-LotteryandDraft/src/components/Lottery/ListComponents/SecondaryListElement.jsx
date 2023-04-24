@@ -3,7 +3,7 @@ import { Typography } from '@mui/material';
 import classes from './SecondaryListElement.module.css'
 
 
-const SecondaryListElement = ({ byWayOf }) => {
+const SecondaryListElement = ({ details }) => {
   return (
     <React.Fragment>
               <Typography
@@ -12,7 +12,7 @@ const SecondaryListElement = ({ byWayOf }) => {
                 color='black'
                 className={classes.secondary}
               >
-                {byWayOf ? 'By way of ' + byWayOf : null}
+                {details}
               </Typography>
             </React.Fragment>
   )
