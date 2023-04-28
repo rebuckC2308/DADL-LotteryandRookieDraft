@@ -5,8 +5,8 @@ import classes from './ListElement.module.css'
 
 const ListElement = ({ team, details, pick } ) => {
   return (
-    <div className={team==='' && details==='' ? classes.emptyItem : classes.item}>
-    <ListItem>
+
+    <ListItem className={team==='' && details==='' ? classes.emptyItem : classes.item}>
       <ListItemAvatar>
         <Avatar sx={{ bgcolor: '#181818' }}>
           {pick}
@@ -22,7 +22,7 @@ const ListElement = ({ team, details, pick } ) => {
           : <SecondaryListElement details={ '' } />}
       />
     </ListItem>
-    </div>
+
   )
 }
 

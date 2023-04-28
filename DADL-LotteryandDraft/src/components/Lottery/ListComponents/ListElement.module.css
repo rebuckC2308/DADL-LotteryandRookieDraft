@@ -3,15 +3,17 @@
   border-width: 1px;
   border-color: black;
   border-radius: 5px;
-  margin: 5px
+  margin: 5px;
+  background-color: rgb(220, 220, 220);
 }
 
 .emptyItem {
-  height: 4.5em;
-
+  height: 5.15em;
   border-style: solid;
   border-width: 1px;
   border-color: black;
   border-radius: 5px;
-  margin: 5px
+  margin: 5px;
+  background-color: rgb(220, 220, 220);
+
 }

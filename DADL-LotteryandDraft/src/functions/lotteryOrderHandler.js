@@ -1,11 +1,3 @@
-    //set the lottery team order:
-        //randomly select the first and second lottery teams
-        //sort the remaining teams per regular season finish
-        //add the lottery teams back to the array
-        //reveal pick 6, 5, 4, 3, 2, 1
-
-
-
   // { name: 'Moores Whores', record: '(72-81)', odds: 8, order: 6 },
   // { name: 'Trae Bombs', record: '(70-83)', odds: 3, order: 5  },
   // { name: 'Rocky Mtn Bulls', record: '(68-85)', odds: 16, order: 4  },
