@@ -1,4 +1,4 @@
-export const consolationTeams = [{team: 'Money Train', byWayOf: 'Regular Season Record: (89-64)', image: '/assets/moneyTrain.png'}, {team: 'TWINNING .', byWayOf: 'Regular Season Record: (91-62)', image: ''}]
+export const consolationTeams = [{team: 'Money Train', byWayOf: 'Regular Season Record: (89-64)', image: '/assets/moneyTrain.png'}, {team: 'TWINNING .', byWayOf: 'Regular Season Record: (91-62)', image: '/assets/twinning.png'}]
 
 export const nonLottoTeams = [
   { id: 7, team: '', byWayOf: '', image: '/assets/moneyTrain.png'},
@@ -10,8 +10,8 @@ export const nonLottoTeams = [
 ]
 
 export const lotteryTeams = [
-  { name: 'Moores Whores', record: 'Regular Season Record: (72-81)', odds: 8, order: 6, image: '' },
-  { name: 'Trae Bombs', record: 'Regular Season Record: (70-83)', odds: 3, order: 5, image: ''  },
+  { name: 'Moores Whores', record: 'Regular Season Record: (72-81)', odds: 8, order: 6, image: '/assets/mooresWhores.jpg' },
+  { name: 'Trae Bombs', record: 'Regular Season Record: (70-83)', odds: 3, order: 5, image: '/assets/traebombs1.png'  },
   { name: 'Rocky Mtn Bulls', record: 'Regular Season Record: (68-85)', odds: 16, order: 4, image: '/assets/rockyMtnBulls.png'  },
   { name: 'The Future', record: 'Regular Season Record: (64-89)', odds: 18, order: 3, image: '/assets/TheFuture.png'  },
   { name: 'WINdy City Bulls', record: 'Regular Season Record: (59-94)', odds: 20, order: 2, image: '/assets/WINdyCity.png'  },

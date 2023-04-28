@@ -31,7 +31,7 @@ const Lottery = () => {
     }
     if (pick <= 6) {
 
-      setRevealTeam({ team: teamList[pick - 1].name, message: `${teamList[pick - 1].name} recieves pick No. ${pick}`, image: teamList[pick - 1].image })
+      setRevealTeam({ team: teamList[pick - 1].name, message: `${teamList[pick - 1].name} receives pick No. ${pick}`, image: teamList[pick - 1].image })
       
       setLottoList(prevState => {
         prevState[pick - 1].team = teamList[pick - 1].name
