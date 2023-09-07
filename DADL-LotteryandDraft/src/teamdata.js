@@ -1,8 +1,8 @@
 export const consolationTeams = [{team: 'Money Train', byWayOf: 'Regular Season Record: (89-64)', image: '/assets/moneyTrain.png'}, {team: 'TWINNING .', byWayOf: 'Regular Season Record: (91-62)', image: '/assets/twinning.png'}]
 
 export const nonLottoTeams = [
-  { id: 7, team: '', byWayOf: '', image: '/assets/moneyTrain.png'},
-  { id: 8, team: '', byWayOf: '', image: ''},
+  { id: 7, team: 'Money Train', byWayOf: '', image: '/assets/moneyTrain.png'},
+  { id: 8, team: 'TWINNING .', byWayOf: '', image: ''},
   { id: 9, team: 'TWINNING .', byWayOf: 'By way of ShOwBoAtS .', image: '' },
   { id: 10, team: 'Chicago Voooooochhhh', byWayOf: 'Regular Season Record: (91-62)', image: '' },
   { id: 11, team: 'Rocky Mtn Bulls', byWayOf: 'By way of Ball Sooo Harden', image: '' },

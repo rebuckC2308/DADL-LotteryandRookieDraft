@@ -12,11 +12,10 @@ export const createLotteryArray = (teams, ) => {
 }
 
 export const determinePicks1and2 = (teams) => {
-  const index = Math.floor(Math.random() * teams.length-1)
+  const index = Math.floor(Math.random() * teams.length - 1)
   const pick = teams[index];
 
   teams = teams.filter((team) => team !== pick)
-
   return [pick, teams]
 }
 

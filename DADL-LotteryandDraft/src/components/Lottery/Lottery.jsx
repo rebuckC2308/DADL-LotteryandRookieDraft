@@ -5,30 +5,31 @@ import Button from '../UI/Button'
 import LotteryBoard from './Board/LotteryBoard';
 import classes from './Lottery.module.css'
 import Modal from '../UI/Modal';
-import { nonLottoTeams, consolationTeams, lottoTeams, lotteryTeams } from '../../teamdata';
+import { nonLottoTeams, lottoTeams, lotteryTeams } from '../../teamdata';
 import { createLotteryArray, determinePicks1and2, filterAndSortLotteryTeams } from '../../functions/lotteryOrderHandler';
-import { pickHandler } from '../../functions/pickHandler';
+// import { pickHandler } from '../../functions/pickHandler';
 
 const Lottery = () => {
-  const [showLotteryComputeButton, setShowLotteryComputeButton] = useState(false)
-  const [pickNumber, setPickNumber] = useState(8)
-  const [nonLottoList, setNonLottoList] = useState(nonLottoTeams)
-  const [consolationPicks, setConsolationPicks] = useState(consolationTeams)
+  const [showLotteryComputeButton, setShowLotteryComputeButton] = useState(true)
+  const [pickNumber, setPickNumber] = useState(6)
+  // const [nonLottoList, setNonLottoList] = useState(nonLottoTeams)
+  // const [consolationPicks, setConsolationPicks] = useState(consolationTeams)
   const [filteredSortedLottery, setFilteredSortedLottery] = useState([])
   const [lottoList, setLottoList] = useState(lottoTeams)
 
   const [revealTeam, setRevealTeam] = useState();
 
-  const updateBoard = (pick, teamList, newConsolationList = [], pickedTeam={}) => {
-    if (pick > 6) {
-      setRevealTeam({ team: pickedTeam.team, message: `${pickedTeam.team} recieves pick No. ${pick}`, image: pickedTeam.image})
+  const updateBoard = (pick, teamList) => {
+    //parameters if radomizing picks 7/8 , newConsolationList = [], pickedTeam={}
+    // if (pick > 6) {
+    //   setRevealTeam({ team: pickedTeam.team, message: `${pickedTeam.team} recieves pick No. ${pick}`, image: pickedTeam.image})
 
-      setConsolationPicks(newConsolationList);
-      setNonLottoList(teamList);
-      setPickNumber((prevState) => {
-        return prevState = prevState - 1
-      })
-    }
+    //   setConsolationPicks(newConsolationList);
+    //   setNonLottoList(teamList);
+    //   setPickNumber((prevState) => {
+    //     return prevState = prevState - 1
+    //   })
+    // }
     if (pick <= 6) {
 
       setRevealTeam({ team: teamList[pick - 1].name, message: `${teamList[pick - 1].name} receives pick No. ${pick}`, image: teamList[pick - 1].image })
@@ -45,14 +46,14 @@ const Lottery = () => {
   }
 
   const onClickHandler = () => {
-    if (pickNumber > 6) {
-      let [pickedTeam, updatedNonLottoTeams, updatedCoosolationTeam] = pickHandler(pickNumber, nonLottoList, consolationPicks)
+    // if (pickNumber > 6) {
+    //   let [pickedTeam, updatedNonLottoTeams, updatedCoosolationTeam] = pickHandler(pickNumber, nonLottoList, consolationPicks)
 
-      updateBoard(pickNumber, updatedNonLottoTeams, updatedCoosolationTeam, pickedTeam )
+    //   updateBoard(pickNumber, updatedNonLottoTeams, updatedCoosolationTeam, pickedTeam )
 
-      if (pickNumber === 7) setShowLotteryComputeButton(true);
-      return;
-    }
+    //   if (pickNumber === 7) setShowLotteryComputeButton(true);
+    //   return;
+    // }
 
     if (pickNumber <= 6) {
       updateBoard(pickNumber, filteredSortedLottery)
@@ -92,7 +93,7 @@ const Lottery = () => {
             <Button type='submit' onClick={onClickHandler} >Reveal Pick {pickNumber}</Button>}
         </div>
         <div className={classes.div}>
-          <LotteryBoard nonLotteryTeams={nonLottoList} lotteryTeams={lottoList} />
+          <LotteryBoard nonLotteryTeams={nonLottoTeams} lotteryTeams={lottoList} />
         </div>
       </Box>
     </Card>
