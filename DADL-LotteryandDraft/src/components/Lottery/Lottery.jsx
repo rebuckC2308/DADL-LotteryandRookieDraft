@@ -5,72 +5,41 @@ import Button from '../UI/Button'
 import LotteryBoard from './Board/LotteryBoard';
 import classes from './Lottery.module.css'
 import Modal from '../UI/Modal';
-import { nonLottoTeams, lottoTeams, lotteryTeams } from '../../teamdata';
-import { createLotteryArray, determinePicks1and2, filterAndSortLotteryTeams } from '../../functions/lotteryOrderHandler';
-// import { pickHandler } from '../../functions/pickHandler';
+import { lottoTeams, lotteryTeams } from '../../teamdata';
 
 const Lottery = () => {
   const [showLotteryComputeButton, setShowLotteryComputeButton] = useState(true)
-  const [pickNumber, setPickNumber] = useState(6)
+  const [pickNumber, setPickNumber] = useState(12)
   // const [nonLottoList, setNonLottoList] = useState(nonLottoTeams)
   // const [consolationPicks, setConsolationPicks] = useState(consolationTeams)
-  const [filteredSortedLottery, setFilteredSortedLottery] = useState([])
+  const [sortedLottery, setSortedLottery] = useState([])
   const [lottoList, setLottoList] = useState(lottoTeams)
 
   const [revealTeam, setRevealTeam] = useState();
 
   const updateBoard = (pick, teamList) => {
-    //parameters if radomizing picks 7/8 , newConsolationList = [], pickedTeam={}
-    // if (pick > 6) {
-    //   setRevealTeam({ team: pickedTeam.team, message: `${pickedTeam.team} recieves pick No. ${pick}`, image: pickedTeam.image})
 
-    //   setConsolationPicks(newConsolationList);
-    //   setNonLottoList(teamList);
-    //   setPickNumber((prevState) => {
-    //     return prevState = prevState - 1
-    //   })
-    // }
-    if (pick <= 6) {
-
-      setRevealTeam({ team: teamList[pick - 1].name, message: `${teamList[pick - 1].name} receives pick No. ${pick}`, image: teamList[pick - 1].image })
+      setRevealTeam({ message: `${teamList[pick - 1]} receives pick No. ${pick}`})
       
       setLottoList(prevState => {
-        prevState[pick - 1].team = teamList[pick - 1].name
-        prevState[pick - 1].record = teamList[pick - 1].record
+        prevState[pick - 1].name = teamList[pick - 1]
         return [...prevState]
       })
       setPickNumber((prevState) => {
         return prevState = prevState - 1
       })
-    }
   }
 
   const onClickHandler = () => {
-    // if (pickNumber > 6) {
-    //   let [pickedTeam, updatedNonLottoTeams, updatedCoosolationTeam] = pickHandler(pickNumber, nonLottoList, consolationPicks)
-
-    //   updateBoard(pickNumber, updatedNonLottoTeams, updatedCoosolationTeam, pickedTeam )
-
-    //   if (pickNumber === 7) setShowLotteryComputeButton(true);
-    //   return;
-    // }
-
-    if (pickNumber <= 6) {
-      updateBoard(pickNumber, filteredSortedLottery)
-    }
+      updateBoard(pickNumber, sortedLottery)
   }
 
   const computeLotteryOrder = () => {
-    const lotteryArr = createLotteryArray(lotteryTeams)
-
-    const [pick1, remainingLotteryTeamsArr] = determinePicks1and2(lotteryArr);
-    const [pick2] = determinePicks1and2(remainingLotteryTeamsArr)
-
-    const filteredSortedLotteryTeams = filterAndSortLotteryTeams(lotteryTeams, pick1, pick2);
-
-    setFilteredSortedLottery([...filteredSortedLotteryTeams])
+    lotteryTeams.sort(() => Math.random() - 0.5);
 
     setShowLotteryComputeButton(false);
+    setSortedLottery(lotteryTeams)
+    console.log(lotteryTeams)
   }
 
   const hideEnvelope = () => {
@@ -78,22 +47,20 @@ const Lottery = () => {
   }
 
   return (
-    <Card>
+    <Card className={classes.card}>
       {revealTeam && <Modal
-        team={revealTeam.team}
         message={revealTeam.message}
-        image={revealTeam.image}
         onCloseModal={hideEnvelope}
       />}
       <Box sx={{ height: '40%', maxWidth: '100%', paddingBottom: '1em' }}>
-        <h1 className={classes.title}>DADL Draft Lottery</h1>
+        <div className={classes.div}>
+          <LotteryBoard lotteryTeams={lottoList} />
+        </div>
+        <h1 className={classes.title}>2k Draft Order</h1>
         <div className={classes.buttonDiv}>
           {pickNumber === 0 ? <></> : showLotteryComputeButton ?
-            <Button type='submit' onClick={computeLotteryOrder}>Randomize Lottery Order</Button> :
+            <Button type='submit' onClick={computeLotteryOrder}>Randomize Draft Order</Button> :
             <Button type='submit' onClick={onClickHandler} >Reveal Pick {pickNumber}</Button>}
-        </div>
-        <div className={classes.div}>
-          <LotteryBoard nonLotteryTeams={nonLottoTeams} lotteryTeams={lottoList} />
         </div>
       </Box>
     </Card>

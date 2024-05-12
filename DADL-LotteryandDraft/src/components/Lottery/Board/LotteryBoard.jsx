@@ -3,14 +3,14 @@ import ListElement from '../ListComponents/ListElement'
 import classes from './LotteryBoard.module.css'
 
 
-const LotteryBoard = ({ nonLotteryTeams, lotteryTeams }) => {
+const LotteryBoard = ({ lotteryTeams }) => {
   return (
     <Grid container spacing={2} className={classes.grid}>
           <Grid item xs={12} md={6}>
             <div>
               <List>
-                {lotteryTeams.map((team) => {
-                  return <ListElement key={team.id} team={team.team} details={team.record}
+                {lotteryTeams.filter(team => team.id < 7).map((team, i) => {
+                  return <ListElement key={team.id} team={team.name}
                     pick={team.id} />
                 })}
               </List>
@@ -19,8 +19,8 @@ const LotteryBoard = ({ nonLotteryTeams, lotteryTeams }) => {
           <Grid item xs={12} md={6}>
             <div>
                 <List>
-                  {nonLotteryTeams.map((team) => {
-                    return <ListElement key={team.id} team={team.team} details={team.byWayOf}
+                  {lotteryTeams.filter(team => team.id >= 7).map((team, i) => {
+                    return <ListElement key={team.id} team={team.name}
                       pick={team.id} />
                   })}
                 </List>

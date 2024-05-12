@@ -2,10 +2,10 @@
   height: 2.5em;
   width: auto;
   font: inherit;
-  border: 1px solid #B7B7B7;
-  border-radius: 3px;
-  background: #B7B7B7;
-  color: black;
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+  background: #000000;
+  color: rgb(255, 255, 255);
   padding: 0.25rem 1rem;
   cursor: pointer;
   font-size: large;
@@ -14,8 +14,8 @@
 
 .button:hover,
 .button:active {
-  background: #B7B7B7;
-  border-color: #B7B7B7;
+  background: #000000;
+  border-color: #ffffff;
 }
 
 .button:focus {

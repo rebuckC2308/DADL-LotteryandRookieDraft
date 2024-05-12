@@ -1,13 +1,13 @@
 .title {
   font-size: 3.0em;
-  color: #B7B7B7;
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  color: #1100fc;
+  text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff;
 }
 
 .div {
   margin: 0 1em 0 1em;
   padding: 0 1em 0 1em;
-  border: 2px solid #fafafa;
+  border: 2px solid #bbbbbb;
   border-radius: 5px;
 }
 
@@ -15,4 +15,8 @@
   width: 100%;
   display: flex;
   justify-content: center;
+}
+
+.card{
+  background-color: #bbbbbb;
 }

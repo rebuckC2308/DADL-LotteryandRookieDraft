@@ -4,7 +4,7 @@
   border-color: black;
   border-radius: 5px;
   margin: 5px;
-  background-color: rgb(220, 220, 220);
+  background-color: rgb(255, 255, 255);
 }
 
 .emptyItem {
@@ -14,6 +14,6 @@
   border-color: black;
   border-radius: 5px;
   margin: 5px;
-  background-color: rgb(220, 220, 220);
+  background-color: rgb(255, 255, 255);
 
 }
