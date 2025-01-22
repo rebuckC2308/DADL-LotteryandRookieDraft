@@ -1,42 +1,66 @@
-import { useState } from 'react';
+import { useState, useEffect  } from 'react';
 import { Box } from '@mui/material';
 import Card from '../UI/Card'
 import Button from '../UI/Button'
 import LotteryBoard from './Board/LotteryBoard';
 import classes from './Lottery.module.css'
 import Modal from '../UI/Modal';
-import { nonLottoTeams, lottoTeams, lotteryTeams } from '../../teamdata';
-import { createLotteryArray, determinePicks1and2, filterAndSortLotteryTeams } from '../../functions/lotteryOrderHandler';
+import { playoffTeams, lotteryTeams, lottoTeams } from './teamData/teamData.js';
+import { createLotteryArray, determinePicks1and2, filterLotteryTeams, addPicksToLotteryArray } from '../../functions/lotteryOrderHandler';
 // import { pickHandler } from '../../functions/pickHandler';
 
 const Lottery = () => {
-  const [showLotteryComputeButton, setShowLotteryComputeButton] = useState(true)
+  // What button to show on board
+  const [showRandomizeButton, setShowRandomizeButton] = useState(true)
+  const [lotteryDraftOrder, setLotteryDraftOrder] = useState([])
   const [pickNumber, setPickNumber] = useState(6)
-  // const [nonLottoList, setNonLottoList] = useState(nonLottoTeams)
-  // const [consolationPicks, setConsolationPicks] = useState(consolationTeams)
-  const [filteredSortedLottery, setFilteredSortedLottery] = useState([])
+
   const [lottoList, setLottoList] = useState(lottoTeams)
 
   const [revealTeam, setRevealTeam] = useState();
 
-  const updateBoard = (pick, teamList) => {
-    //parameters if radomizing picks 7/8 , newConsolationList = [], pickedTeam={}
-    // if (pick > 6) {
-    //   setRevealTeam({ team: pickedTeam.team, message: `${pickedTeam.team} recieves pick No. ${pick}`, image: pickedTeam.image})
 
-    //   setConsolationPicks(newConsolationList);
-    //   setNonLottoList(teamList);
-    //   setPickNumber((prevState) => {
-    //     return prevState = prevState - 1
-    //   })
-    // }
+  const updateLotteryDraftOrder = (newOrder) => {
+        setLotteryDraftOrder(newOrder);
+  };
+  
+  // This effect runs whenever lotteryDraftOrder changes
+  useEffect(() => {
+        console.log('Lottery draft order updated:', lotteryDraftOrder);
+    }, [lotteryDraftOrder]
+  );
+
+  // Click button to randomize the order of picks:
+  const onRandomizeOrderClick = () => {
+    const lotteryTeamArr = lotteryTeams.slice()
+    // Create lottery array
+    const lotteryArr = createLotteryArray(lotteryTeamArr)
+
+    const [pick1, remainingLotteryTeamsArr] = determinePicks1and2(lotteryArr)
+    const [pick2] = determinePicks1and2(remainingLotteryTeamsArr)
+
+    //returns remaining teams in array, sorted by inverse of finish, and the two teams that were selected
+    const [filteredAndSortedTeams, numberOne, number2] = filterLotteryTeams(lotteryTeamArr, pick1, pick2)
+
+    const lotteryArray = addPicksToLotteryArray(filteredAndSortedTeams, numberOne, number2)
+
+    updateLotteryDraftOrder(lotteryArray)
+    setShowRandomizeButton(false);
+  }
+
+
+
+
+  const updateBoard = (pick, teamList) => {
     if (pick <= 6) {
 
       setRevealTeam({ team: teamList[pick - 1].name, message: `${teamList[pick - 1].name} receives pick No. ${pick}`, image: teamList[pick - 1].image })
       
       setLottoList(prevState => {
-        prevState[pick - 1].team = teamList[pick - 1].name
+        prevState[pick - 1].name = teamList[pick - 1].name
         prevState[pick - 1].record = teamList[pick - 1].record
+        prevState[pick - 1].originalOwner = teamList[pick - 1].originalOwner
+        prevState[pick - 1].show = true
         return [...prevState]
       })
       setPickNumber((prevState) => {
@@ -45,33 +69,12 @@ const Lottery = () => {
     }
   }
 
-  const onClickHandler = () => {
-    // if (pickNumber > 6) {
-    //   let [pickedTeam, updatedNonLottoTeams, updatedCoosolationTeam] = pickHandler(pickNumber, nonLottoList, consolationPicks)
-
-    //   updateBoard(pickNumber, updatedNonLottoTeams, updatedCoosolationTeam, pickedTeam )
-
-    //   if (pickNumber === 7) setShowLotteryComputeButton(true);
-    //   return;
-    // }
-
+  const onRevealPickClick = () => {
     if (pickNumber <= 6) {
-      updateBoard(pickNumber, filteredSortedLottery)
+      updateBoard(pickNumber, lotteryDraftOrder)
     }
   }
 
-  const computeLotteryOrder = () => {
-    const lotteryArr = createLotteryArray(lotteryTeams)
-
-    const [pick1, remainingLotteryTeamsArr] = determinePicks1and2(lotteryArr);
-    const [pick2] = determinePicks1and2(remainingLotteryTeamsArr)
-
-    const filteredSortedLotteryTeams = filterAndSortLotteryTeams(lotteryTeams, pick1, pick2);
-
-    setFilteredSortedLottery([...filteredSortedLotteryTeams])
-
-    setShowLotteryComputeButton(false);
-  }
 
   const hideEnvelope = () => {
     setRevealTeam(null);
@@ -79,21 +82,23 @@ const Lottery = () => {
 
   return (
     <Card>
-      {revealTeam && <Modal
-        team={revealTeam.team}
-        message={revealTeam.message}
-        image={revealTeam.image}
-        onCloseModal={hideEnvelope}
-      />}
+      { revealTeam && <Modal
+        team={ revealTeam.team }
+        message={ revealTeam.message }
+        image={ revealTeam.image }
+        onCloseModal={ hideEnvelope }
+      />
+      }
       <Box sx={{ height: '40%', maxWidth: '100%', paddingBottom: '1em' }}>
-        <h1 className={classes.title}>DADL Draft Lottery</h1>
-        <div className={classes.buttonDiv}>
-          {pickNumber === 0 ? <></> : showLotteryComputeButton ?
-            <Button type='submit' onClick={computeLotteryOrder}>Randomize Lottery Order</Button> :
-            <Button type='submit' onClick={onClickHandler} >Reveal Pick {pickNumber}</Button>}
+        <h1 className={ classes.title }>DADL Draft Lottery</h1>
+        <div className={ classes.buttonDiv }>
+          { pickNumber === 0 ? <></> : showRandomizeButton ?
+            <Button type='submit' onClick={onRandomizeOrderClick}>Randomize Lottery Order</Button> :
+            <Button type='submit' onClick={onRevealPickClick} >Reveal Pick {pickNumber}</Button>
+          }
         </div>
-        <div className={classes.div}>
-          <LotteryBoard nonLotteryTeams={nonLottoTeams} lotteryTeams={lottoList} />
+        <div className={ classes.div }>
+          <LotteryBoard playoffTeamList={ playoffTeams } lotteryTeams={ lottoList } />
         </div>
       </Box>
     </Card>

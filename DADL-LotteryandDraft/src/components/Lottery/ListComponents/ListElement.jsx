@@ -3,26 +3,27 @@ import SecondaryListElement from './SecondaryListElement';
 import PrimaryListElement from './PrimaryListElement';
 import classes from './ListElement.module.css'
 
-const ListElement = ({ team, details, pick } ) => {
+const ListElement = ({ teamName, originalOwner, pick, record, show=true } ) => {
   return (
-
-    <ListItem className={team==='' && details==='' ? classes.emptyItem : classes.item}>
+    // && details===""
+    <ListItem className={ classes.item }>
       <ListItemAvatar>
         <Avatar sx={{ bgcolor: '#181818' }}>
-          {pick}
+          { pick }
         </Avatar>
       </ListItemAvatar>
         <ListItemText
-        primary={ team ?
-            <PrimaryListElement team={team} /> :
+        primary={ teamName ?
+            <PrimaryListElement team={teamName} /> :
             <PrimaryListElement team={ '' } />
         }
-        secondary={ details ?
-            <SecondaryListElement details={ details }/>
-          : <SecondaryListElement details={ '' } />}
+        secondary={!show ? <SecondaryListElement details={""} /> :
+              originalOwner === teamName ?
+             <SecondaryListElement details={ record }/>
+            : <SecondaryListElement details={`By way of: ${originalOwner}`} />
+        }
       />
     </ListItem>
-
   )
 }
 
