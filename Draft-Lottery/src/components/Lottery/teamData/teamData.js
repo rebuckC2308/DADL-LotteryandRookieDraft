@@ -16,21 +16,21 @@
 //   { name: 'TWINNING ', record: 'By way of Moore\'s Whores', odds: 35, order: 1, image: '/assets/twinning.png'  }
 // ]
 export const playoffTeams = [
-  { finishPos: 1, name: "Team1", originalOwner: "Team1", teamLogo: "", record: "Regular Season Finish: 88-61", show:true },
-  { finishPos: 2, name: "Team1", originalOwner: "Team2", teamLogo: "", record: "Regular Season Finish: 96-53", show:true },
-  { finishPos: 3, name: "Team3", originalOwner: "Team3", teamLogo: "", record: "Regular Season Finish: 97-52", show:true },
-  { finishPos: 4, name: "Team4", originalOwner: "Team4", teamLogo: "", record: "Regular Season Finish: 99-51", show:true },
-  { finishPos: 5, name: "Team5", originalOwner: "Team5", teamLogo: "", record: "Regular Season Finish: 99-51", show:true },
-  { finishPos: 6, name: "Team6", originalOwner: "Team6", teamLogo: "", record: "Regular Season Finish: 93-56", show:true },
+  { finishPos: 1, name: "The Firm", originalOwner: "Squad 1", teamLogo: "assets/TheFirm.webp", record: "Regular Season Finish: 59-94", show:true },
+  { finishPos: 2, name: "The Firm", originalOwner: "Legendary Dicky B!", teamLogo: "assets/TheFirm.webp", record: "Regular Season Finish: 59-94", show:true },
+  { finishPos: 3, name: "Dietrich Dynasty", originalOwner: "The Expendables", teamLogo: "", record: "Regular Season Finish: 70-84", show:true },
+  { finishPos: 4, name: "44 West", originalOwner: "44 West", teamLogo: "assets/44West.jpg", record: "Regular Season Finish: 104-49", show:true },
+  { finishPos: 5, name: "Les Wembys", originalOwner: "Who Wants Some MOORE", teamLogo: "", record: "Regular Season Finish: 62-91", show:true },
+  { finishPos: 6, name: "Glory Road Grizzlies", originalOwner: "Glory Road Grizzlies", teamLogo: "", record: "Regular Season Finish: 78-75", show:true },
 ]
 
 export const lotteryTeams = [
-  { name: "Money Train", record: "", lotteryOdds: 20, finishPosition: 12, originalOwner: "Money Train", image: "" },
-  { name: "Money Train", record: "", lotteryOdds: 20, finishPosition: 11, originalOwner: "Jello's Jiggling", image: "" },
-  { name: "Money Train", record: "", lotteryOdds: 20, finishPosition: 10, originalOwner: "WINdy City 1337's", image: "" },
-  { name: "Money Train", record: "", lotteryOdds: 20, finishPosition: 9, originalOwner: "Moore's Whores", image: "" },
-  { name: "Mamba Forever", record: "", lotteryOdds: 20, finishPosition: 8, originalOwner: "Mamba Forever", image: "" },
-  { name: "L O A D I N G...", record: "", lotteryOdds: 20, finishPosition: 7, originalOwner: "L O A D I N G...", image: "" },
+  { name: "The Firm", record: "", lotteryOdds: 37, finishPosition: 12, originalOwner: "The Firm", image: "assets/TheFirm.webp" },
+  { name: "Injured Reserve", record: "61-93", lotteryOdds: 27, finishPosition: 11, originalOwner: "Injured Reserve", image: "assets/IR.jpg" },
+  { name: "Les Wembys", record: "62-91", lotteryOdds: 13, finishPosition: 10, originalOwner: "Les Wembys", image: "" },
+  { name: "Team Bass", record: "68-85", lotteryOdds: 11, finishPosition: 9, originalOwner: "Team Bass", image: "" },
+  { name: "Diesel Power", record: "72-81", lotteryOdds: 11, finishPosition: 8, originalOwner: "Dietrich Dynasty", image: "assets/DieselPower.jpg" },
+  { name: "The Firm", record: "59-94", lotteryOdds: 1, finishPosition: 7, originalOwner: "Diesel Power", image: "assets/TheFirm.webp" },
 ]
 
 export const lottoTeams = [

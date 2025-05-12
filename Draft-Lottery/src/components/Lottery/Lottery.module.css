@@ -1,7 +1,7 @@
 .title {
-  font-size: 3.0em;
-  color: #B7B7B7;
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  font-size: 3.5em;
+  color: #31363F;
+  /* text-shadow: -1px -1px 0 #222831, 1px -1px 0 #222831, -1px 1px 0 #222831, 1px 1px 0 #222831; */
 }
 
 .div {
