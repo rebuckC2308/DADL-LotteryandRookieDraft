@@ -1,20 +1,3 @@
-// export const playoffTeams = [
-//   { id: 7, team: 'Moore\'s Whores', byWayOf: 'By way of ShOwBoAtS via trade with Money Train', image: '/assets/moneyTrain.png'},
-//   { id: 8, team: 'Jello\'s Jiggling', byWayOf: 'By way of pick swap with Moore\'s Whores via Rocky Mtn Bulls', image: ''},
-//   { id: 9, team: 'Mamba Forever', byWayOf: 'Regular Season Record (94-59)', image: '' },
-//   { id: 10, team: 'Money Train', byWayOf: 'By way of ShOwBoAtS', image: '' },
-//   { id: 11, team: 'Money Train', byWayOf: 'By way of ShOwBoAtS via Ball Sooo Harden', image: '' },
-//   { id : 12, team: 'Chicago Voooooochhhh', byWayOf: 'Regular Season Record (100-53)', image: '' },
-// ]
-
-// export const lotteryTeams = [
-//   { name: 'TWINNING .', record: 'Regular Season Record: (79-74)', odds: 2, order: 6, image: '/assets/twinning.png' },
-//   { name: 'WINdy City 1337\'s', record: 'Regular Season Record: (76-77)', odds: 14, order: 5, image: '/assets/WINdyCity.png'  },
-//   { name: 'Da Bruh Bruhs Bruh Bruhs', record: 'Regular Season Record: (69-84)', odds: 11, order: 4, image: '/assets/daBruhBruhs.svg'  },
-//   { name: 'LOADING...', record: 'Regular Season Record: (61-92)', odds: 10, order: 3, image: '/assets/loading.gif'  },
-//   { name: 'Moore\'s Whores', record: 'By way of Jello\'s Jiggling via pick swap', odds: 20, order: 2, image: '/assets/mooresWhores.jpg'  },
-//   { name: 'TWINNING ', record: 'By way of Moore\'s Whores', odds: 35, order: 1, image: '/assets/twinning.png'  }
-// ]
 export const playoffTeams = [
   { finishPos: 1, name: "The Firm", originalOwner: "Squad 1", teamLogo: "assets/TheFirm.webp", record: "Regular Season Finish: 59-94", show:true },
   { finishPos: 2, name: "The Firm", originalOwner: "Legendary Dicky B!", teamLogo: "assets/TheFirm.webp", record: "Regular Season Finish: 59-94", show:true },

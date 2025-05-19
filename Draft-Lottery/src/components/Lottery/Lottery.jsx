@@ -90,7 +90,7 @@ const Lottery = () => {
       />
       }
       <Box sx={{ height: '40%', maxWidth: '100%', paddingBottom: '1em' }}>
-        <h1 className={ classes.title }>DADL Draft Lottery</h1>
+        <h1 className={ classes.title }>12 AM Draft Lottery</h1>
         <div className={ classes.buttonDiv }>
           { pickNumber === 0 ? <></> : showRandomizeButton ?
             <Button type='submit' onClick={onRandomizeOrderClick}>Randomize Lottery Order</Button> :

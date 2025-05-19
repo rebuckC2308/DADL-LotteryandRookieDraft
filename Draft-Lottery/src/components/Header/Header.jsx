@@ -6,11 +6,11 @@ const Header = () => {
     <div>
       <Card className={classes.header}>
         <div>
-          <img src="/assets/DADLlogoV2.jpg" alt="dadlLogo" className={classes.logo} />
+          <img src="/assets/leagueLogo.jpg" alt="leagueLogo" className={classes.logo} />
         </div>
-        <h1 className={classes.title}>Drop A Dub League</h1>
+        <h1 className={classes.title}>12 Angry Men Basketball</h1>
         <div>
-          <img src="/assets/DADLlogoV2.jpg" alt="dadlLogo" className={classes.logo} />
+          <img src="/assets/leagueLogo.jpg" alt="leagueLogo" className={classes.logo} />
         </div>      </Card>
     </div>
   )
