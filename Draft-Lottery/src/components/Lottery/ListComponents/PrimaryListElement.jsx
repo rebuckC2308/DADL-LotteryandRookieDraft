@@ -10,7 +10,7 @@ const PrimaryListElement = ({ team }) => {
             <Typography
               component="span"
               variant="h5"
-              color='black'
+              color='#DFD0B8'
             >
               {team}
             </Typography>

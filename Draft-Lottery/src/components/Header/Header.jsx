@@ -6,12 +6,13 @@ const Header = () => {
     <div>
       <Card className={classes.header}>
         <div>
-          <img src="/assets/leagueLogo.jpg" alt="leagueLogo" className={classes.logo} />
+          <img src="/assets/leagueLogo.jpg" alt="leagueLogo" className={classes.logoLeft} />
         </div>
         <h1 className={classes.title}>12 Angry Men Basketball</h1>
         <div>
-          <img src="/assets/leagueLogo.jpg" alt="leagueLogo" className={classes.logo} />
-        </div>      </Card>
+          <img src="/assets/leagueLogo.jpg" alt="leagueLogo" className={classes.logoRight} />
+        </div>
+      </Card>
     </div>
   )
 }

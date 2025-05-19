@@ -9,7 +9,7 @@ const SecondaryListElement = ({ details }) => {
               <Typography
                 component="span"
                 variant="body2"
-                color='black'
+                color='#B8CCDE'
                 className={classes.secondary}
               >
                 {details}
