@@ -1,10 +1,10 @@
 export const playoffTeams = [
-  { finishPos: 1, name: "The Firm", originalOwner: "Squad 1", teamLogo: "assets/TheFirm.webp", record: "59-94", show:true },
-  { finishPos: 2, name: "The Firm", originalOwner: "Legendary Dicky B!", teamLogo: "assets/TheFirm.webp", record: "59-94", show:true },
-  { finishPos: 3, name: "Dietrich Dynasty", originalOwner: "The Expendables", teamLogo: "", record: "70-84", show:true },
-  { finishPos: 4, name: "44 West", originalOwner: "44 West", teamLogo: "assets/44West.jpg", record: "104-49", show:true },
-  { finishPos: 5, name: "Les Wembys", originalOwner: "Who Wants Some MOORE", teamLogo: "", record: "62-91", show:true },
   { finishPos: 6, name: "Glory Road Grizzlies", originalOwner: "Glory Road Grizzlies", teamLogo: "", record: "78-75", show:true },
+  { finishPos: 5, name: "Les Wembys", originalOwner: "Who Wants Some MOORE", teamLogo: "", record: "62-91", show:true },
+  { finishPos: 4, name: "44 West", originalOwner: "44 West", teamLogo: "assets/44West.jpg", record: "104-49", show:true },
+  { finishPos: 3, name: "Dietrich Dynasty", originalOwner: "The Expendables", teamLogo: "", record: "70-84", show:true },
+  { finishPos: 2, name: "The Firm", originalOwner: "Legendary Dicky B!", teamLogo: "assets/TheFirm.webp", record: "59-94", show:true },
+  { finishPos: 1, name: "The Firm", originalOwner: "Squad 1", teamLogo: "assets/TheFirm.webp", record: "59-94", show:true },
 ]
 
 export const lotteryTeams = [

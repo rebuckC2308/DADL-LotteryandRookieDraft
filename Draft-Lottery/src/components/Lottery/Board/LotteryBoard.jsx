@@ -22,7 +22,7 @@ const LotteryBoard = ({ playoffTeamList, lotteryTeams }) => {
                 <List>
                   { playoffTeamList.map((team) => {
                       return <ListElement key={team.finishPos} teamName={team.name} originalOwner={team.originalOwner}
-                        pick={team.finishPos + 6} record={team.record} show={team.show} />
+                        pick={13 - team.finishPos } record={team.record} show={team.show} />
                     })
                   }
                 </List>
