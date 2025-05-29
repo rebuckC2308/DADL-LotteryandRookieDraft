@@ -3,6 +3,12 @@
   justify-content: space-between;
   height: 100%;
   width: 100%;
+  background: #273F4F;
+  box-shadow: 
+  0 -10px 8px -1px rgba(0,0,0,0.2),
+  0 10px 8px -4px rgba(0, 0, 0, 0.26);
+  border-radius: 10px;
+  width: 95vw;
 }
 .div {
   height: 100%;
@@ -15,9 +21,20 @@
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
-.logo {
+.logoLeft {
   border-radius: 10px;
   height: 100%;
   width: 100%;
   overflow: hidden;
+  /* -webkit-mask-image: linear-gradient(to left, transparent 0%, rgb(255, 255, 255) 35%);
+  mask-image: linear-gradient(to left, transparent 0%, rgb(255, 255, 255) 5%); */
+}
+
+.logoRight {
+  border-radius: 10px;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  /* -webkit-mask-image: linear-gradient(to right, transparent 0%, black 35%);
+  mask-image: linear-gradient(to right, transparent 0%, black 35%); */
 }

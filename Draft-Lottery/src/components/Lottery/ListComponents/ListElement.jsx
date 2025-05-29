@@ -19,7 +19,7 @@ const ListElement = ({ teamName, originalOwner, pick, record, show=true } ) => {
         }
         secondary={!show ? <SecondaryListElement details={""} /> :
               originalOwner === teamName ?
-             <SecondaryListElement details={ record }/>
+             <SecondaryListElement details={ `Regular Season Finish: ${record}` }/>
             : <SecondaryListElement details={`By way of: ${originalOwner}`} />
         }
       />
