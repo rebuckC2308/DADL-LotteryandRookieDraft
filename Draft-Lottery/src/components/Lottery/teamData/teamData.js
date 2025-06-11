@@ -9,12 +9,12 @@ export const playoffTeams = [
 ]
 
 export const lotteryTeams = [
-  { name: "Money Train", record: "62-91", lotteryOdds: 33, finishPosition: 12, originalOwner: "WINdy City 1337's", image: "" },
-  { name: "Money Train", record: "62-91", lotteryOdds: 23, finishPosition: 11, originalOwner: "Jello's Jiggling", image: "" },
-  { name: "Money Train", record: "62-91", lotteryOdds: 22, finishPosition: 10, originalOwner: "Money Train", image: "" },
-  { name: "L O A D I N G...", record: "69-84", lotteryOdds: 6, finishPosition: 9, originalOwner: "L O A D I N G...", image: "" },
-  { name: "Money Train", record: "62-91", lotteryOdds: 3, finishPosition: 8, originalOwner: "Moore's Whores", image: "" },
-  { name: "Mamba Forever", record: "76-78", lotteryOdds: 2, finishPosition: 7, originalOwner: "Mamba Forever", image: "" },
+  { name: "Money Train", record: "62-91", lotteryOdds: 33, finishPosition: 12, originalOwner: "WINdy City 1337's", image: "assets/moneyTrain.png" },
+  { name: "Money Train", record: "62-91", lotteryOdds: 23, finishPosition: 11, originalOwner: "Jello's Jiggling", image: "assets/moneyTrain.png" },
+  { name: "Money Train", record: "62-91", lotteryOdds: 22, finishPosition: 10, originalOwner: "Money Train", image: "assets/moneyTrain.png" },
+  { name: "Gorloks", record: "69-84", lotteryOdds: 6, finishPosition: 9, originalOwner: "Gorloks", image: "assets/gorlocks.png" },
+  { name: "Money Train", record: "62-91", lotteryOdds: 3, finishPosition: 8, originalOwner: "Moore's Whores", image: "assets/moneyTrain.png" },
+  { name: "Mamba Forever", record: "76-78", lotteryOdds: 2, finishPosition: 7, originalOwner: "Mamba Forever", image: "assets/mambaForever.jpg" },
 ]
 
 export const lottoTeams = [

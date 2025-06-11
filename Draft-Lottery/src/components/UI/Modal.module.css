@@ -51,6 +51,13 @@
   padding-top: 2em;
 }
 
+.teamImg{
+  max-width: 40%;
+  max-height: 40%;
+  height: auto;
+  width: auto;
+}
+
 img{
   border-radius: 20px;
 }

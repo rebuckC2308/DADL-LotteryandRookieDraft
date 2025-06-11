@@ -13,7 +13,7 @@ const ModalOverlay = (props) => {
         <h2>{props.team}</h2>
       </header>
       <div className={classes.imgContainer}>
-        <img src={ props.image } />
+        <img className={classes.teamImg} src={ props.image } />
       </div>
       <div className={classes.content}>
         <p>{props.message}</p>
